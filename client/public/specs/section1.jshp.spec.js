@@ -1,4 +1,4 @@
-/* global describe, beforeEach, afterEach, it, expect */
+/* global describe, beforeEach, afterEach, it, expect, jshp */
 
 describe('JavaScriptHasPower - section 1 [JS DOM basic]', function () {
   'use strict';
