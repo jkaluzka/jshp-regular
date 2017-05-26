@@ -1,0 +1,14 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "description": "JSHasPower Regular",
+  "main": "data.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "json-server --watch data.js"
+  },
+  "dependencies": {
+    "faker": "^4.1.0",
+    "json-server": "^0.10.0"
+  }
+}
