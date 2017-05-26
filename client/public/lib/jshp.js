@@ -7,6 +7,10 @@
     return doc.querySelectorAll(selector);
   };
 
+  jshp.findChildren = function (parent, selector) {
+    return parent.querySelectorAll(selector);
+  };
+
   jshp.create = function (tag) {
     var classes = [];
     if (tag.indexOf('.') > 0) {
@@ -75,6 +79,25 @@
       element.style[styleName] = newValue;
     }
     return getComputedStyle(element)[styleName];
+  };
+
+  jshp.empty = function (element) {
+    element.innerHTML = '';
+  };
+
+  jshp.data = function (element, datasetName, datasetValue) {
+    if (typeof datasetValue !== 'undefined') {
+      element.dataset[datasetName] = datasetValue;
+    }
+    return element.dataset[datasetName];
+  };
+
+  jshp.ready = function (fn) {
+    if (doc.readyState != 'loading') {
+      fn();
+    } else {
+      doc.addEventListener('DOMContentLoaded', fn);
+    }
   };
 
   // support for simple events
@@ -176,5 +199,11 @@
     var opts = Object.assign({}, options, {method: 'POST'});
     jshp.ajax(opts, handleSuccess, handleError, context);
   };
+
+  if (typeof (String.prototype.startsWith) !== 'function') {
+    String.prototype.startsWith = function (needle) {
+      return this.indexOf(needle) === 0;
+    };
+  }
 
 })(window.jshp = window.jshp || {});
